@@ -9,9 +9,9 @@ interface Input {
 
 export default async ({ id }: Input): Promise<RequestResponse> => {
 	const db = await getDb()
-	const todo = await db.collection('todo').findOne({ _id: new ObjectID(id) })
+	const todo = await db.collection('to do').findOne({ _id: new ObjectID(id) })
 	await db
-		.collection('todo')
+		.collection('to do')
 		.updateOne({ _id: new ObjectID(id) }, { $set: { checked: !todo.checked } })
 	return {
 		status: RequestResult.SUCCESS
