@@ -5,8 +5,6 @@ interface Input {
 	text: string
 }
 
-//let now = Date.now()
-
 export default async ({ text }: Input): Promise<RequestResponse> => {
 	const db = await getDb()
 	const todo: Todo = {
